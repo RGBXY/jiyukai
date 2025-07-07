@@ -2,7 +2,6 @@ import React from "react";
 import BlogCard from "../blog/blog-card";
 import { data_blog } from "@/lib/constant";
 import SideCardLatest from "../blog/side-card-latest";
-import SideFIlterBlog from "../blog/side-filter-blog";
 
 const BlogSection = () => {
   return (
@@ -11,16 +10,15 @@ const BlogSection = () => {
         {/* Artikel kiri */}
         <div className="grid gap-6 grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] ">
           {data_blog.map((item) => (
-            <BlogCard key={item.id} blogItem={item} />
+            <BlogCard key={item.id} blog={item} />
           ))}
           {data_blog.map((item) => (
-            <BlogCard key={item.id} blogItem={item} />
+            <BlogCard key={item.id} blog={item} />
           ))}
         </div>
 
         {/* Sidebar kanan */}
         <aside className="h-full space-y-5">
-          <SideFIlterBlog />
           <SideCardLatest />
         </aside>
       </div>

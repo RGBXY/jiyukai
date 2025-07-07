@@ -31,6 +31,31 @@ export const category = [
     id: 8,
     name: "Design",
   },
+  {
+    id: 9,
+    name: "Biografi",
+  },
+  {
+    id: 10,
+    name: "Fakta",
+  },
+  {
+    id: 11,
+    name: "Anekdot",
+  },
+  {
+    id: 12,
+    name: "Wibu",
+  },
+  {
+    id: 13,
+    name: "Sejarah",
+  },
+
+  {
+    id: 14,
+    name: "Seni",
+  },
 ];
 
 export const nav_link = [
@@ -53,6 +78,7 @@ export const data_blog = [
     reading_time: "9 min",
     date: "June 25, 2025",
     author: "Derren Amadeo",
+    slug: "cara-membuat-slug-di-next-js",
   },
   {
     id: 2,
@@ -62,6 +88,7 @@ export const data_blog = [
     reading_time: "9 min",
     date: "June 25, 2025",
     author: "Derren Amadeo",
+    slug: "cara-membuat-slug-di-next-js",
   },
   {
     id: 3,
@@ -71,6 +98,7 @@ export const data_blog = [
     reading_time: "9 min",
     date: "June 25, 2025",
     author: "Derren Amadeo",
+    slug: "cara-membuat-slug-di-next-js",
   },
   {
     id: 4,
@@ -80,6 +108,7 @@ export const data_blog = [
     reading_time: "9 min",
     date: "June 25, 2025",
     author: "Derren Amadeo",
+    slug: "cara-membuat-slug-di-next-js",
   },
   {
     id: 5,
@@ -89,6 +118,7 @@ export const data_blog = [
     reading_time: "9 min",
     date: "June 25, 2025",
     author: "Derren Amadeo",
+    slug: "cara-membuat-slug-di-next-js",
   },
   {
     id: 6,
@@ -98,5 +128,6 @@ export const data_blog = [
     reading_time: "9 min",
     date: "June 25, 2025",
     author: "Derren Amadeo",
+    slug: "cara-membuat-slug-di-next-js",
   },
 ];

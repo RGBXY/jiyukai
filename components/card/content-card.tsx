@@ -3,16 +3,16 @@ import Link from "next/link";
 import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-interface propItem {
-  id: number;
-  title: string;
+interface BlogItem {
   category: string;
   date: string;
-  variant?: "default" | "primary" | "secondary";
+  author: string;
+  slug: string;
+  title: string;
 }
 
 interface ContentCardProps extends VariantProps<typeof ContentCardVariant> {
-  data: propItem;
+  data: BlogItem;
   asChild?: boolean;
 }
 
@@ -20,7 +20,7 @@ const ContentCardVariant = cva("", {
   variants: {
     variant: {
       default: "line-clamp-2 min-h-[3em] leading-6",
-      secondary: "w-full text-sm leading-5 line-clamp-2",
+      sm: "w-full text-sm leading-5 line-clamp-2",
     },
   },
   defaultVariants: {
@@ -33,7 +33,7 @@ const ContentCard = ({ data, variant }: ContentCardProps) => {
     <div className="w-full h-max-[300px] ">
       <div className="space-y-2 w-full">
         <div className="w-full">
-          <Link href="/" className="hover:text-gray-400 transition-all">
+          <Link href={`/blog/${data.slug}`} className="hover:text-gray-400 transition-all">
             <span className={cn(ContentCardVariant({ variant }))}>{data.title}</span>
           </Link>
         </div>

@@ -5,7 +5,7 @@ import { Search, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useMemo } from "react";
 import SideCard from "../card/side-card";
-import ImageContentCard from "../card/image-content-card";
+import BlogCard from "./blog-card";
 
 interface SideCardProps {
   className?: string;
@@ -81,7 +81,7 @@ const SideFIlterBlog: React.FC<SideCardProps> = ({ className = "", maxCategories
                 Found {filteredBlogs.length} result{filteredBlogs.length !== 1 ? "s" : ""}
               </div>
               {filteredBlogs.slice(0, maxSearchResults).map((item) => (
-                <ImageContentCard key={item.id} data={item} />
+                <BlogCard key={item.id} blog={item} variant="compact" />
               ))}
               {filteredBlogs.length > maxSearchResults && (
                 <div className="text-center pt-4">

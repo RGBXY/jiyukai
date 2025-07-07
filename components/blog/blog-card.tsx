@@ -1,45 +1,58 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
+import ContentCard from "../card/content-card";
+import { cn } from "@/lib/utils";
 // import { Skeleton } from "../ui/skeleton";
 
 interface BlogItem {
-  id: number;
   title: string;
-  image: string;
   category: string;
-  reading_time: string;
   date: string;
+  slug: string;
   author: string;
+  image: string;
 }
 
-interface BlogItemsProps {
-  blogItem: BlogItem;
+interface BlogItemProps {
+  blog: BlogItem;
+  className?: string;
+  variant?: "default" | "compact";
 }
 
-const BlogCard = ({ blogItem }: BlogItemsProps) => {
+type ContentCardVariant = "default" | "sm";
+
+const LayoutVariants: Record<
+  string,
+  {
+    cardWrapper: string;
+    imageStyle: string;
+    contentCardVar: ContentCardVariant;
+  }
+> = {
+  default: {
+    cardWrapper: "flex-col min-h-[285px] h-full flex justify-between gap-2 w-full ",
+    imageStyle: "w-full",
+    contentCardVar: "default",
+  },
+  compact: {
+    cardWrapper: "flex-row item-center flex justify-between gap-2 w-full ",
+    imageStyle: "w-[100px]",
+    contentCardVar: "default",
+  },
+};
+
+const BlogCard = ({ blog, variant = "default", className }: BlogItemProps) => {
+  const styles = LayoutVariants[variant];
+
   return (
-    <div className="h-full ">
-      <div className="min-h-[285px] flex flex-col justify-between gap-3 w-full">
-        <div className="space-y-2">
-          <div className="">
-            <Image className="aspect-3/2 w-full object-cover" alt="blog-image" src={blogItem.image} width="300" height="300" />
-          </div>
-          <Link href="/" className="hover:text-gray-400 transition-all">
-            <h1 className="line-clamp-2 min-h-[3em] leading-6">{blogItem.title}</h1>
-          </Link>
-        </div>
-        <div className="text-xs text-gray-5 flex gap-4 items-center">
-          <span>{blogItem.category}</span>
-          <div className="h-[0.5px] bg-gray-3 flex-1" />
-          <span>{blogItem.date}</span>
-        </div>
-
-        {/* <ContentCard data={blogItem} /> */}
+    <div className={cn(`h-full w-full ${className}`)}>
+      <div className={cn(`${styles.cardWrapper}`)}>
+        <Image className={cn(`${styles.imageStyle} aspect-3/2 object-cover`)} alt="blog-image" src={blog.image} width="300" height="300" />
+        <ContentCard data={blog} variant={styles.contentCardVar || "default"} />
       </div>
 
-      {/* <div className="min-h-[280px] flex flex-col gap-2 w-full">
-        <Skeleton className="aspect-3/2 w-full" />
+      {/* <div className={`${styles.cardWrapper}  aspect-3/2`}>
+        <Skeleton className={styles.imageStyle} />
         <Skeleton className="h-8 w-full" />
         <Skeleton className="h-8 w-full" />
       </div> */}
