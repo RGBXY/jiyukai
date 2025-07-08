@@ -2,6 +2,7 @@ import React from "react";
 import BlogCard from "../blog/blog-card";
 import { data_blog } from "@/lib/constant";
 import SideCardLatest from "../blog/side-card-latest";
+import SideFilterBlog from "../blog/side-filter-blog";
 
 const BlogSection = () => {
   return (
@@ -19,6 +20,7 @@ const BlogSection = () => {
 
         {/* Sidebar kanan */}
         <aside className="h-full space-y-5">
+          <SideFilterBlog />
           <SideCardLatest />
         </aside>
       </div>

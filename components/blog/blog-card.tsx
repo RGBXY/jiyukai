@@ -39,6 +39,7 @@ const LayoutVariants: Record<
     imageStyle: "w-[100px]",
     contentCardVar: "default",
   },
+  
 };
 
 const BlogCard = ({ blog, variant = "default", className }: BlogItemProps) => {

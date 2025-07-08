@@ -11,7 +11,7 @@ const dm_sans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Jiyukai",
-  description: "Derren Amadeo Hermawan Blog Website",
+  description: "Jiyukai, Derren Amadeo Hermawan Blog Website",
 };
 
 export default function RootLayout({

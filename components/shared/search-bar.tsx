@@ -16,7 +16,7 @@ function SearchBar() {
     if (!searchValue.trim()) return [];
 
     const searchTerm = searchValue.toLowerCase().trim();
-    return data_blog.map((item) => item.title.toLowerCase().includes(searchTerm));
+    return data_blog.filter((item) => item.title.toLowerCase().includes(searchTerm));
   }, [searchValue]);
 
   const handleSearch = (value: string) => {
@@ -37,17 +37,24 @@ function SearchBar() {
           </SheetTitle>
         </SheetHeader>
 
-        <div className="space-y-8">
-          <div className="px-4 space-y-5">
-            <h1 className="text-2xl">✨ Popular Blogs</h1>
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-y-4 gap-x-8">
-              {/* {filteredBlog.slice(0, 10).map((item) => (
-                <BlogCard variant="compact" blog={item} key={item.id} />
-              ))} */}
+        <div className="space-y-8 px-4">
+          {filteredBlog.length > 0 && searchValue !== "" && (
+            <div className="border-b border-gray-3 pb-8 space-y-5">
+              <div className="grid md:grid-cols-2 grid-cols-1 gap-y-4 gap-x-8">
+                {filteredBlog.slice(0, 10).map((item) => (
+                  <BlogCard variant="compact" blog={item} key={item.id} />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
-          <div className="px-4 space-y-5">
+          {filteredBlog.length == 0 && searchValue !== "" && (
+            <div className="h-20 border-b border-gray-3">
+              <h1 className="text-3xl">😐 No result found</h1>
+            </div>
+          )}
+
+          <div className=" space-y-5">
             <h1 className="text-2xl">✨ Popular Topics</h1>
             <div className="flex items-center gap-2 flex-wrap">
               {category.slice(0, 14).map((item) => (
@@ -60,8 +67,8 @@ function SearchBar() {
             </div>
           </div>
 
-          <div className="px-4 space-y-5">
-            <h1 className="text-2xl">✨ Popular Blogs</h1>
+          <div className=" space-y-5">
+            <h1 className="text-2xl">📰 Popular Blogs</h1>
             <div className="grid md:grid-cols-2 grid-cols-1 gap-y-4 gap-x-8">
               {data_blog.slice(0, 7).map((item) => (
                 <BlogCard variant="compact" blog={item} key={item.id} />

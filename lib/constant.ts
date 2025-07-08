@@ -64,6 +64,10 @@ export const nav_link = [
     url: "/",
   },
   {
+    name: "Insight",
+    url: "/blog",
+  },
+  {
     name: "About",
     url: "/about",
   },
